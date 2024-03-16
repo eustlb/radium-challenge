@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
         # VALIDATION =========================
         masks = []
-        paths = glob.glob("/kaggle/input/radium-data/x-val/*.png")
+        paths = glob.glob(join(config.dataset.img_dir, "*.png"))
 
         def get_image_number(path):
             return int(path.split('/')[-1].split('.')[0])
