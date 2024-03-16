@@ -1,0 +1,6 @@
+data/*
+.DS_Store
+notebooks/*
+sam/parameters/*
+sam/data/*
+sam/wandb/*

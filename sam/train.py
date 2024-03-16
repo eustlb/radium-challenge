@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
             optimizer.zero_grad()
             radsam_pred, _ = radsam_model(img_batch, points)
-            # radsam_pred = radsam_pred.squeeze().unsqueeze(0)
+            radsam_pred = radsam_pred.squeeze()
             loss = seg_loss(radsam_pred, masks) + ce_loss(radsam_pred, masks.float())
             loss.backward()
             optimizer.step()
