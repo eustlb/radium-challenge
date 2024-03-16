@@ -22,7 +22,8 @@ if __name__ == "__main__":
 
     # CONFIG =============================
     # Load YAML config file
-    with open('config.yaml', 'r') as file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    with open(join(current_dir, 'config.yaml'), 'r') as file:
         config_dict = yaml.safe_load(file)
 
     config = EasyDict(config_dict)
