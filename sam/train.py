@@ -131,7 +131,8 @@ if __name__ == "__main__":
 
             epoch_loss += loss.item()
             iter_num += 1
-            break
+            if step > 1:
+                break
         
         epoch_loss /= step
         losses.append(epoch_loss)
