@@ -13,7 +13,7 @@ dataset:
 
 
 training:
-  device: "mps"
+  device: "cuda"
   model_type: "vit_b"
   checkpoint: "/kaggle/input/radium-data/sam_vit_b_01ec64.pth"
   lr: 0.0001
