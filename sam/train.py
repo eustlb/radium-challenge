@@ -132,8 +132,6 @@ if __name__ == "__main__":
 
             epoch_loss += loss.item()
             iter_num += 1
-            if step > 1:
-                break
         
         epoch_loss /= step
         losses.append(epoch_loss)
@@ -153,9 +151,6 @@ if __name__ == "__main__":
             image = cv2.imread(img_path)
             mask = infer(image, radsam_model, device)
             masks.append(mask)
-            break
-
-        y_val = y_val[:1]
 
         b, *_ = y_val.shape
         preds = np.stack(masks)
@@ -170,7 +165,7 @@ if __name__ == "__main__":
             wandb.log({"epoch_loss": epoch_loss})
             wandb.log({"val_score": val_score})
         print(
-            f'Time: {datetime.now().strftime("%H:%M")}, Epoch: {epoch:.4f}, Loss: {epoch_loss:.4f}'
+            f'Time: {datetime.now().strftime("%H:%M")}, Epoch: {epoch}, Loss: {epoch_loss:.4f}'
         )
         # save the latest model
         checkpoint = {
