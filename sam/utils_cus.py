@@ -133,7 +133,7 @@ def infer(img, radsam_model, device):
     masks = mask_generator.generate(img)
     
     sorted_anns = sorted(masks, key=(lambda x: x['area']), reverse=True)
-    mask = np.zeros((sorted_anns[0]['segmentation'].shape[0], sorted_anns[0]['segmentation'].shape[1]),
+    mask = np.zeros((512, 512),
                     dtype=np.int16)
     
     i = 1
