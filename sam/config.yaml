@@ -1,0 +1,33 @@
+wandb:
+
+
+model:
+  name: RadSam
+  task_name: RadSam-vit-B
+  work_dir: ./parameters
+
+
+dataset:
+  start_idx: 200
+  end_idx: 400
+  img_dir: "/Users/eustachelebihan/Development/radium-challenge/data/x-train"
+  masks_path: "/Users/eustachelebihan/Development/radium-challenge/sam/data/masks_200_400.pkl"
+  pnts_path: "/Users/eustachelebihan/Development/radium-challenge/sam/data/pnts_200_400.pkl"
+
+
+training:
+  device: "mps"
+  model_type: "vit_b"
+  checkpoint: "/Users/eustachelebihan/Downloads/sam_vit_b_01ec64.pth"
+  lr: 0.0001
+  weight_decay: 0.01
+  num_epochs: 1000
+  tr_npy_path: 
+  batch_size: 1
+  num_workers: 1
+  resume: False
+  use_amp: False
+  use_wandb: True
+  
+
+
