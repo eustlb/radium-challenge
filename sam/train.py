@@ -5,12 +5,18 @@ import matplotlib.pyplot as plt
 import torch
 import wandb
 import yaml
+import glob
+import cv2
+import numpy as np
 from easydict import EasyDict
 from tqdm import tqdm
 import monai
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from segment_anything import sam_model_registry
+
+from evaluate import evaluate
+from utils_cus import infer
 
 from model import RadSam
 from dataset import RadSamDataset
@@ -37,6 +43,8 @@ if __name__ == "__main__":
         config=config
     )
 
+    # load validation set
+    y_val = np.load(config.dataset.val_path)
     # ====================================
 
 
@@ -123,14 +131,38 @@ if __name__ == "__main__":
 
             epoch_loss += loss.item()
             iter_num += 1
+            break
         
         epoch_loss /= step
         losses.append(epoch_loss)
         # ====================================
 
+
+        # VALIDATION =========================
+        masks = []
+        paths = glob.glob("/kaggle/input/radium-data/x-val/*.png")
+
+        def get_image_number(path):
+            return int(path.split('/')[-1].split('.')[0])
+
+        sorted_paths = sorted(paths, key=get_image_number)[:40]
+        print("Evaluating on val set...")
+        for img_path in tqdm(sorted_paths):
+            image = cv2.imread(img_path)
+            mask = infer(image, radsam_model, device)
+            masks.append(mask)
+
+        preds = np.stack(masks)
+        preds = preds.reshape((200, -1))
+        val_score = evaluate(preds, y_val)
+        print(f"Validation score: {val_score}")
+        # ====================================
+
+
         # LOGGING ============================
         if config.training.use_wandb:
             wandb.log({"epoch_loss": epoch_loss})
+            wandb.log({"val_score": val_score})
         print(
             f'Time: {datetime.now().strftime("%Y%m%d-%H%M")}, Epoch: {epoch}, Loss: {epoch_loss}'
         )
