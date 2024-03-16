@@ -1,0 +1,192 @@
+2024-03-16 18:52:10,343 INFO    StreamThr :1499 [internal.py:wandb_internal():86] W&B internal server running at pid: 1499, started at: 2024-03-16 18:52:10.342429
+2024-03-16 18:52:10,344 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: status
+2024-03-16 18:52:10,347 INFO    WriterThread:1499 [datastore.py:open_for_write():87] open: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/run-49vu65s3.wandb
+2024-03-16 18:52:10,349 DEBUG   SenderThread:1499 [sender.py:send():378] send: header
+2024-03-16 18:52:10,369 DEBUG   SenderThread:1499 [sender.py:send():378] send: run
+2024-03-16 18:52:10,861 INFO    SenderThread:1499 [dir_watcher.py:__init__():211] watching files in: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files
+2024-03-16 18:52:10,862 INFO    SenderThread:1499 [sender.py:_start_run_threads():1099] run started: 49vu65s3 with start time 1710611530.343668
+2024-03-16 18:52:10,869 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: check_version
+2024-03-16 18:52:10,870 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: check_version
+2024-03-16 18:52:11,089 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: run_start
+2024-03-16 18:52:11,097 DEBUG   HandlerThread:1499 [system_info.py:__init__():26] System info init
+2024-03-16 18:52:11,097 DEBUG   HandlerThread:1499 [system_info.py:__init__():41] System info init done
+2024-03-16 18:52:11,097 INFO    HandlerThread:1499 [system_monitor.py:start():194] Starting system monitor
+2024-03-16 18:52:11,097 INFO    SystemMonitor:1499 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-03-16 18:52:11,097 INFO    HandlerThread:1499 [system_monitor.py:probe():214] Collecting system info
+2024-03-16 18:52:11,097 INFO    SystemMonitor:1499 [interfaces.py:start():190] Started cpu monitoring
+2024-03-16 18:52:11,098 DEBUG   HandlerThread:1499 [system_info.py:probe():150] Probing system
+2024-03-16 18:52:11,099 INFO    SystemMonitor:1499 [interfaces.py:start():190] Started disk monitoring
+2024-03-16 18:52:11,099 INFO    SystemMonitor:1499 [interfaces.py:start():190] Started gpuapple monitoring
+2024-03-16 18:52:11,101 INFO    SystemMonitor:1499 [interfaces.py:start():190] Started memory monitoring
+2024-03-16 18:52:11,101 INFO    SystemMonitor:1499 [interfaces.py:start():190] Started network monitoring
+2024-03-16 18:52:11,105 DEBUG   HandlerThread:1499 [system_info.py:_probe_git():135] Probing git
+2024-03-16 18:52:11,120 DEBUG   HandlerThread:1499 [system_info.py:_probe_git():143] Probing git done
+2024-03-16 18:52:11,120 DEBUG   HandlerThread:1499 [system_info.py:probe():198] Probing system done
+2024-03-16 18:52:11,121 DEBUG   HandlerThread:1499 [system_monitor.py:probe():223] {'os': 'macOS-13.5.2-arm64-arm-64bit', 'python': '3.11.8', 'heartbeatAt': '2024-03-16T17:52:11.099034', 'startedAt': '2024-03-16T17:52:10.335765', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/eustachelebihan/Development/radium-challenge/sam/train.py', 'codePathLocal': 'train.py', 'codePath': 'sam/train.py', 'git': {'remote': 'https://github.com/eustlb/radium-challenge.git', 'commit': 'c0aa80a6a2176af813c65d87054dde4523488781'}, 'email': None, 'root': '/Users/eustachelebihan/Development/radium-challenge', 'host': 'samantha.home', 'username': 'eustachelebihan', 'executable': '/Users/eustachelebihan/miniforge3/envs/radium-py11/bin/python', 'cpu_count': 8, 'cpu_count_logical': 8, 'disk': {'/': {'total': 460.4317207336426, 'used': 279.5940055847168}}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2024-03-16 18:52:11,121 INFO    HandlerThread:1499 [system_monitor.py:probe():224] Finished collecting system info
+2024-03-16 18:52:11,121 INFO    HandlerThread:1499 [system_monitor.py:probe():227] Publishing system info
+2024-03-16 18:52:11,121 DEBUG   HandlerThread:1499 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-03-16 18:52:11,866 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/conda-environment.yaml
+2024-03-16 18:52:13,155 DEBUG   HandlerThread:1499 [system_info.py:_save_conda():219] Saving conda packages done
+2024-03-16 18:52:13,155 INFO    HandlerThread:1499 [system_monitor.py:probe():229] Finished publishing system info
+2024-03-16 18:52:13,158 DEBUG   SenderThread:1499 [sender.py:send():378] send: files
+2024-03-16 18:52:13,158 INFO    SenderThread:1499 [sender.py:_save_file():1365] saving file wandb-metadata.json with policy now
+2024-03-16 18:52:13,200 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: python_packages
+2024-03-16 18:52:13,200 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: stop_status
+2024-03-16 18:52:13,200 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: python_packages
+2024-03-16 18:52:13,200 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: stop_status
+2024-03-16 18:52:13,201 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-16 18:52:13,360 DEBUG   SenderThread:1499 [sender.py:send():378] send: telemetry
+2024-03-16 18:52:13,483 DEBUG   SenderThread:1499 [sender.py:send():378] send: exit
+2024-03-16 18:52:13,483 INFO    SenderThread:1499 [sender.py:send_exit():585] handling exit code: 1
+2024-03-16 18:52:13,483 INFO    SenderThread:1499 [sender.py:send_exit():587] handling runtime: 2
+2024-03-16 18:52:13,483 INFO    SenderThread:1499 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-03-16 18:52:13,483 INFO    SenderThread:1499 [sender.py:send_exit():593] send defer
+2024-03-16 18:52:13,484 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,484 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 0
+2024-03-16 18:52:13,484 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,484 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-03-16 18:52:13,484 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 1
+2024-03-16 18:52:13,484 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,484 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 1
+2024-03-16 18:52:13,484 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,484 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-03-16 18:52:13,484 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 2
+2024-03-16 18:52:13,484 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,484 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 2
+2024-03-16 18:52:13,484 INFO    HandlerThread:1499 [system_monitor.py:finish():203] Stopping system monitor
+2024-03-16 18:52:13,484 DEBUG   SystemMonitor:1499 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-03-16 18:52:13,484 INFO    HandlerThread:1499 [interfaces.py:finish():202] Joined cpu monitor
+2024-03-16 18:52:13,484 DEBUG   SystemMonitor:1499 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-03-16 18:52:13,485 INFO    HandlerThread:1499 [interfaces.py:finish():202] Joined disk monitor
+2024-03-16 18:52:13,485 DEBUG   SystemMonitor:1499 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-03-16 18:52:13,485 INFO    HandlerThread:1499 [interfaces.py:finish():202] Joined gpuapple monitor
+2024-03-16 18:52:13,485 INFO    HandlerThread:1499 [interfaces.py:finish():202] Joined memory monitor
+2024-03-16 18:52:13,485 INFO    HandlerThread:1499 [interfaces.py:finish():202] Joined network monitor
+2024-03-16 18:52:13,485 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,485 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-03-16 18:52:13,485 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 3
+2024-03-16 18:52:13,485 DEBUG   SenderThread:1499 [sender.py:send():378] send: telemetry
+2024-03-16 18:52:13,485 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,485 DEBUG   SenderThread:1499 [sender.py:send():378] send: stats
+2024-03-16 18:52:13,485 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 3
+2024-03-16 18:52:13,485 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,485 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-03-16 18:52:13,485 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 4
+2024-03-16 18:52:13,485 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,485 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 4
+2024-03-16 18:52:13,486 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,486 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-03-16 18:52:13,486 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 5
+2024-03-16 18:52:13,486 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,486 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 5
+2024-03-16 18:52:13,486 DEBUG   SenderThread:1499 [sender.py:send():378] send: summary
+2024-03-16 18:52:13,486 INFO    SenderThread:1499 [sender.py:_save_file():1365] saving file wandb-summary.json with policy end
+2024-03-16 18:52:13,486 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,486 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-03-16 18:52:13,486 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 6
+2024-03-16 18:52:13,486 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,486 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 6
+2024-03-16 18:52:13,486 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,486 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-03-16 18:52:13,487 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: status_report
+2024-03-16 18:52:13,704 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 7
+2024-03-16 18:52:13,704 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:13,704 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 7
+2024-03-16 18:52:13,704 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:13,704 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-03-16 18:52:13,721 INFO    wandb-upload_0:1499 [upload_job.py:push():131] Uploaded file /var/folders/9f/37t44p7s00nc2jsnwh7n_4k40000gn/T/tmp44demtqbwandb/6y0sj4lu-wandb-metadata.json
+2024-03-16 18:52:13,871 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/conda-environment.yaml
+2024-03-16 18:52:13,871 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/config.yaml
+2024-03-16 18:52:13,872 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/wandb-summary.json
+2024-03-16 18:52:13,872 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/wandb-metadata.json
+2024-03-16 18:52:13,872 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/requirements.txt
+2024-03-16 18:52:13,872 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_created():271] file/dir created: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/output.log
+2024-03-16 18:52:14,490 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-16 18:52:15,494 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 8
+2024-03-16 18:52:15,495 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: poll_exit
+2024-03-16 18:52:15,495 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:15,495 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 8
+2024-03-16 18:52:15,496 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:15,496 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-03-16 18:52:15,496 INFO    SenderThread:1499 [job_builder.py:build():298] Attempting to build job artifact
+2024-03-16 18:52:15,497 INFO    SenderThread:1499 [job_builder.py:_get_source_type():428] is repo sourced job
+2024-03-16 18:52:15,527 INFO    SenderThread:1499 [job_builder.py:build():404] adding wandb-job metadata file
+2024-03-16 18:52:15,530 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 9
+2024-03-16 18:52:15,530 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:15,530 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 9
+2024-03-16 18:52:15,531 DEBUG   SenderThread:1499 [sender.py:send():378] send: artifact
+2024-03-16 18:52:15,889 INFO    Thread-12 :1499 [dir_watcher.py:_on_file_modified():288] file/dir modified: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/output.log
+2024-03-16 18:52:16,500 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-16 18:52:17,208 INFO    wandb-upload_0:1499 [upload_job.py:push():89] Uploaded file /Users/eustachelebihan/Library/Application Support/wandb/artifacts/staging/tmpjorx0p4b
+2024-03-16 18:52:17,209 INFO    wandb-upload_1:1499 [upload_job.py:push():89] Uploaded file /Users/eustachelebihan/Library/Application Support/wandb/artifacts/staging/tmpqeqnijl6
+2024-03-16 18:52:18,324 INFO    SenderThread:1499 [sender.py:send_artifact():1443] sent artifact job-https___github.com_eustlb_radium-challenge.git_sam_train.py - {'id': 'QXJ0aWZhY3Q6NzU4OTE1MTA5', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjE0OTQ5MTY5Mw==', 'latestArtifact': None}}
+2024-03-16 18:52:18,325 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:18,325 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-03-16 18:52:18,325 INFO    SenderThread:1499 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-03-16 18:52:18,900 INFO    SenderThread:1499 [dir_watcher.py:finish():388] scan: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files
+2024-03-16 18:52:18,901 INFO    SenderThread:1499 [dir_watcher.py:finish():402] scan save: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/requirements.txt requirements.txt
+2024-03-16 18:52:18,901 INFO    SenderThread:1499 [dir_watcher.py:finish():402] scan save: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/output.log output.log
+2024-03-16 18:52:18,901 INFO    SenderThread:1499 [dir_watcher.py:finish():402] scan save: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/config.yaml config.yaml
+2024-03-16 18:52:18,901 INFO    SenderThread:1499 [dir_watcher.py:finish():402] scan save: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/wandb-summary.json wandb-summary.json
+2024-03-16 18:52:18,902 INFO    SenderThread:1499 [dir_watcher.py:finish():402] scan save: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/conda-environment.yaml conda-environment.yaml
+2024-03-16 18:52:18,902 INFO    SenderThread:1499 [dir_watcher.py:finish():402] scan save: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/wandb-metadata.json wandb-metadata.json
+2024-03-16 18:52:18,902 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 10
+2024-03-16 18:52:18,902 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: poll_exit
+2024-03-16 18:52:18,902 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:18,907 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 10
+2024-03-16 18:52:18,913 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:18,918 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-03-16 18:52:18,918 INFO    SenderThread:1499 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-16 18:52:19,276 INFO    wandb-upload_1:1499 [upload_job.py:push():131] Uploaded file /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/output.log
+2024-03-16 18:52:19,283 INFO    wandb-upload_2:1499 [upload_job.py:push():131] Uploaded file /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/config.yaml
+2024-03-16 18:52:19,354 INFO    wandb-upload_3:1499 [upload_job.py:push():131] Uploaded file /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/wandb-summary.json
+2024-03-16 18:52:19,364 INFO    wandb-upload_4:1499 [upload_job.py:push():131] Uploaded file /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/conda-environment.yaml
+2024-03-16 18:52:19,373 INFO    wandb-upload_0:1499 [upload_job.py:push():131] Uploaded file /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/files/requirements.txt
+2024-03-16 18:52:19,513 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-16 18:52:19,513 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: poll_exit
+2024-03-16 18:52:19,577 INFO    Thread-11 (_thread_body):1499 [sender.py:transition_state():613] send defer: 11
+2024-03-16 18:52:19,577 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:19,577 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 11
+2024-03-16 18:52:19,577 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:19,577 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-03-16 18:52:19,577 INFO    SenderThread:1499 [file_pusher.py:join():178] waiting for file pusher
+2024-03-16 18:52:19,578 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 12
+2024-03-16 18:52:19,578 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:19,578 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 12
+2024-03-16 18:52:19,578 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:19,578 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-03-16 18:52:19,578 INFO    SenderThread:1499 [file_stream.py:finish():595] file stream finish called
+2024-03-16 18:52:19,706 INFO    SenderThread:1499 [file_stream.py:finish():599] file stream finish is done
+2024-03-16 18:52:19,706 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 13
+2024-03-16 18:52:19,706 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:19,706 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 13
+2024-03-16 18:52:19,707 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:19,707 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-03-16 18:52:19,707 INFO    SenderThread:1499 [sender.py:transition_state():613] send defer: 14
+2024-03-16 18:52:19,707 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: defer
+2024-03-16 18:52:19,707 INFO    HandlerThread:1499 [handler.py:handle_request_defer():172] handle defer: 14
+2024-03-16 18:52:19,707 DEBUG   SenderThread:1499 [sender.py:send():378] send: final
+2024-03-16 18:52:19,707 DEBUG   SenderThread:1499 [sender.py:send():378] send: footer
+2024-03-16 18:52:19,708 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: defer
+2024-03-16 18:52:19,708 INFO    SenderThread:1499 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-03-16 18:52:19,708 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-16 18:52:19,708 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: poll_exit
+2024-03-16 18:52:19,709 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: poll_exit
+2024-03-16 18:52:19,709 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: server_info
+2024-03-16 18:52:19,709 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: poll_exit
+2024-03-16 18:52:19,709 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: get_summary
+2024-03-16 18:52:19,710 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: server_info
+2024-03-16 18:52:19,710 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: sampled_history
+2024-03-16 18:52:19,711 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: internal_messages
+2024-03-16 18:52:19,711 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: job_info
+2024-03-16 18:52:19,833 DEBUG   SenderThread:1499 [sender.py:send_request():405] send_request: job_info
+2024-03-16 18:52:19,833 INFO    MainThread:1499 [wandb_run.py:_footer_history_summary_info():3851] rendering history
+2024-03-16 18:52:19,833 INFO    MainThread:1499 [wandb_run.py:_footer_history_summary_info():3883] rendering summary
+2024-03-16 18:52:19,833 INFO    MainThread:1499 [wandb_run.py:_footer_sync_info():3810] logging synced files
+2024-03-16 18:52:19,834 DEBUG   HandlerThread:1499 [handler.py:handle_request():146] handle_request: shutdown
+2024-03-16 18:52:19,834 INFO    HandlerThread:1499 [handler.py:finish():869] shutting down handler
+2024-03-16 18:52:20,713 INFO    WriterThread:1499 [datastore.py:close():296] close: /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/run-49vu65s3.wandb
+2024-03-16 18:52:20,837 INFO    SenderThread:1499 [sender.py:finish():1521] shutting down sender
+2024-03-16 18:52:20,838 INFO    SenderThread:1499 [file_pusher.py:finish():172] shutting down file pusher
+2024-03-16 18:52:20,838 INFO    SenderThread:1499 [file_pusher.py:join():178] waiting for file pusher

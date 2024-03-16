@@ -1,0 +1,61 @@
+wandb_version: 1
+
+model:
+  desc: null
+  value:
+    name: RadSam
+    task_name: RadSam-vit-B
+    work_dir: ./parameters
+dataset:
+  desc: null
+  value:
+    start_idx: 200
+    end_idx: 400
+    img_dir: /kaggle/input/radium-data/x-train-200-400
+    masks_path: /kaggle/input/radium-data/masks_200_400.pkl
+    pnts_path: /kaggle/input/radium-data/pnts_200_400.pkl
+training:
+  desc: null
+  value:
+    device: cuda
+    model_type: vit_b
+    checkpoint: /kaggle/input/radium-data/sam_vit_b_01ec64.pth
+    lr: 0.0001
+    weight_decay: 0.01
+    num_epochs: 1
+    tr_npy_path: null
+    batch_size: 4
+    num_workers: 1
+    resume: false
+    use_amp: false
+    use_wandb: true
+    freeze_encoder: true
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.8
+    cli_version: 0.16.4
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1710611530.0
+    t:
+      1:
+      - 1
+      - 41
+      - 48
+      - 55
+      2:
+      - 1
+      - 41
+      - 48
+      - 55
+      3:
+      - 16
+      - 23
+      4: 3.11.8
+      5: 0.16.4
+      8:
+      - 4
+      - 5
+      13: darwin-arm64

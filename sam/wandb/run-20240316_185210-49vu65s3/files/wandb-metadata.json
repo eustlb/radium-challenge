@@ -1,0 +1,37 @@
+{
+    "os": "macOS-13.5.2-arm64-arm-64bit",
+    "python": "3.11.8",
+    "heartbeatAt": "2024-03-16T17:52:11.099034",
+    "startedAt": "2024-03-16T17:52:10.335765",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/eustachelebihan/Development/radium-challenge/sam/train.py",
+    "codePathLocal": "train.py",
+    "codePath": "sam/train.py",
+    "git": {
+        "remote": "https://github.com/eustlb/radium-challenge.git",
+        "commit": "c0aa80a6a2176af813c65d87054dde4523488781"
+    },
+    "email": null,
+    "root": "/Users/eustachelebihan/Development/radium-challenge",
+    "host": "samantha.home",
+    "username": "eustachelebihan",
+    "executable": "/Users/eustachelebihan/miniforge3/envs/radium-py11/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "disk": {
+        "/": {
+            "total": 460.4317207336426,
+            "used": 279.5940055847168
+        }
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

@@ -1,0 +1,27 @@
+2024-03-16 18:52:10,338 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Current SDK version is 0.16.4
+2024-03-16 18:52:10,338 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Configure stats pid to 1489
+2024-03-16 18:52:10,338 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Loading settings from /Users/eustachelebihan/.config/wandb/settings
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Loading settings from /Users/eustachelebihan/Development/radium-challenge/sam/wandb/settings
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'sam/train.py', 'program_abspath': '/Users/eustachelebihan/Development/radium-challenge/sam/train.py', 'program': '/Users/eustachelebihan/Development/radium-challenge/sam/train.py'}
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_init.py:_log_setup():526] Logging user logs to /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/logs/debug.log
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_init.py:_log_setup():527] Logging internal logs to /Users/eustachelebihan/Development/radium-challenge/sam/wandb/run-20240316_185210-49vu65s3/logs/debug-internal.log
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_init.py:init():566] calling init triggers
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_init.py:init():573] wandb.init called with sweep_config: {}
+config: {'model': {'name': 'RadSam', 'task_name': 'RadSam-vit-B', 'work_dir': './parameters'}, 'dataset': {'start_idx': 200, 'end_idx': 400, 'img_dir': '/kaggle/input/radium-data/x-train-200-400', 'masks_path': '/kaggle/input/radium-data/masks_200_400.pkl', 'pnts_path': '/kaggle/input/radium-data/pnts_200_400.pkl'}, 'training': {'device': 'cuda', 'model_type': 'vit_b', 'checkpoint': '/kaggle/input/radium-data/sam_vit_b_01ec64.pth', 'lr': 0.0001, 'weight_decay': 0.01, 'num_epochs': 1, 'tr_npy_path': None, 'batch_size': 4, 'num_workers': 1, 'resume': False, 'use_amp': False, 'use_wandb': True, 'freeze_encoder': True}}
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_init.py:init():616] starting backend
+2024-03-16 18:52:10,339 INFO    MainThread:1489 [wandb_init.py:init():620] setting up manager
+2024-03-16 18:52:10,340 INFO    MainThread:1489 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2024-03-16 18:52:10,343 INFO    MainThread:1489 [wandb_init.py:init():628] backend started and connected
+2024-03-16 18:52:10,346 INFO    MainThread:1489 [wandb_init.py:init():720] updated telemetry
+2024-03-16 18:52:10,368 INFO    MainThread:1489 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-03-16 18:52:10,869 INFO    MainThread:1489 [wandb_run.py:_on_init():2262] communicating current version
+2024-03-16 18:52:11,086 INFO    MainThread:1489 [wandb_run.py:_on_init():2271] got version response 
+2024-03-16 18:52:11,086 INFO    MainThread:1489 [wandb_init.py:init():804] starting run threads in backend
+2024-03-16 18:52:13,200 INFO    MainThread:1489 [wandb_run.py:_console_start():2241] atexit reg
+2024-03-16 18:52:13,200 INFO    MainThread:1489 [wandb_run.py:_redirect():2096] redirect: wrap_raw
+2024-03-16 18:52:13,200 INFO    MainThread:1489 [wandb_run.py:_redirect():2161] Wrapping output streams.
+2024-03-16 18:52:13,200 INFO    MainThread:1489 [wandb_run.py:_redirect():2186] Redirects installed.
+2024-03-16 18:52:13,200 INFO    MainThread:1489 [wandb_init.py:init():847] run started, returning control to user process
+2024-03-16 18:52:20,951 WARNING MsgRouterThr:1489 [router.py:message_loop():77] message_loop has been closed
