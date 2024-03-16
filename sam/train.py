@@ -38,10 +38,11 @@ if __name__ == "__main__":
     model_save_path = join(config.model.work_dir, config.model.task_name + "-" + run_id)
     os.makedirs(model_save_path, exist_ok=True)
 
-    wandb.init(
-        project=f"radsam-{run_id}",
-        config=config
-    )
+    if config.training.use_wandb:
+        wandb.init(
+            project=f"radsam-{run_id}",
+            config=config
+        )
 
     # load validation set
     y_val = np.load(config.dataset.val_path)
@@ -124,7 +125,7 @@ if __name__ == "__main__":
             optimizer.zero_grad()
             radsam_pred, _ = radsam_model(img_batch, points)
             radsam_pred = radsam_pred.squeeze()
-            masks = masks.squeeze()
+            # masks = masks.squeeze()
             loss = seg_loss(radsam_pred, masks) + ce_loss(radsam_pred, masks.float())
             loss.backward()
             optimizer.step()
@@ -154,19 +155,22 @@ if __name__ == "__main__":
             masks.append(mask)
             break
 
+        y_val = y_val[:1]
+
+        b, *_ = y_val.shape
         preds = np.stack(masks)
-        preds = preds.reshape((200, -1))
+        preds = preds.reshape((b, -1))
         val_score = evaluate(preds, y_val)
-        print(f"Validation score: {val_score}")
+        print(f"Validation score: {val_score:.4f}")
         # ====================================
 
 
         # LOGGING ============================
         if config.training.use_wandb:
             wandb.log({"epoch_loss": epoch_loss})
-            # wandb.log({"val_score": val_score})
+            wandb.log({"val_score": val_score})
         print(
-            f'Time: {datetime.now().strftime("%Y%m%d-%H%M")}, Epoch: {epoch}, Loss: {epoch_loss}'
+            f'Time: {datetime.now().strftime("%H:%M")}, Epoch: {epoch:.4f}, Loss: {epoch_loss:.4f}'
         )
         # save the latest model
         checkpoint = {
