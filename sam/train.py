@@ -152,6 +152,7 @@ if __name__ == "__main__":
             image = cv2.imread(img_path)
             mask = infer(image, radsam_model, device)
             masks.append(mask)
+            break
 
         preds = np.stack(masks)
         preds = preds.reshape((200, -1))
@@ -163,7 +164,7 @@ if __name__ == "__main__":
         # LOGGING ============================
         if config.training.use_wandb:
             wandb.log({"epoch_loss": epoch_loss})
-            wandb.log({"val_score": val_score})
+            # wandb.log({"val_score": val_score})
         print(
             f'Time: {datetime.now().strftime("%Y%m%d-%H%M")}, Epoch: {epoch}, Loss: {epoch_loss}'
         )
