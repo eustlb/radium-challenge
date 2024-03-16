@@ -5,7 +5,7 @@ model:
 
 
 dataset:
-  start_idx: 200
+  start_idx: 40
   end_idx: 400
   img_dir: "/kaggle/input/radium-data/x-train-0-400"
   masks_path: "/kaggle/input/radium-data/masks_40_400.pkl"
