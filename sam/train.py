@@ -30,31 +30,37 @@ if __name__ == "__main__":
     device = config.training.device
     model_save_path = join(config.model.work_dir, config.model.task_name + "-" + run_id)
     os.makedirs(model_save_path, exist_ok=True)
+
+    wandb.init(
+        project=f"radsam-{run_id}",
+        config=config
+    )
+
     # ====================================
 
 
     # MODEL ==============================
     sam_model = sam_model_registry[config.training.model_type](checkpoint=config.training.checkpoint)
-    medsam_model = RadSam(
+    radsam_model = RadSam(
         image_encoder=sam_model.image_encoder,
         mask_decoder=sam_model.mask_decoder,
         prompt_encoder=sam_model.prompt_encoder,
-        freeze_img_encoder=False
+        freeze_img_encoder=config.training.freeze_encoder
     ).to(device)
 
-    print("Number of total parameters: ", sum(p.numel() for p in medsam_model.parameters())) 
-    print("Number of trainable parameters: ", sum(p.numel() for p in medsam_model.parameters() if p.requires_grad))  # 93729252
+    print("Number of total parameters: ", sum(p.numel() for p in radsam_model.parameters())) 
+    print("Number of trainable parameters: ", sum(p.numel() for p in radsam_model.parameters() if p.requires_grad))  # 93729252
 
-    img_mask_encdec_params = list(medsam_model.image_encoder.parameters()) + list(
-        medsam_model.mask_decoder.parameters()
+    img_mask_encdec_params = list(radsam_model.image_encoder.parameters()) + list(
+        radsam_model.mask_decoder.parameters()
     )
     optimizer = torch.optim.AdamW(
         img_mask_encdec_params, lr=config.training.lr, weight_decay=config.training.weight_decay
     )
 
     # optimizer
-    img_mask_encdec_params = list(medsam_model.image_encoder.parameters()) + list(
-        medsam_model.mask_decoder.parameters()
+    img_mask_encdec_params = list(radsam_model.image_encoder.parameters()) + list(
+        radsam_model.mask_decoder.parameters()
     )
     optimizer = torch.optim.AdamW(
         img_mask_encdec_params, lr=config.training.lr, weight_decay=config.training.weight_decay
@@ -71,7 +77,13 @@ if __name__ == "__main__":
     iter_num = 0
     losses = []
     best_loss = 1e10
-    train_dataset = RadSamDataset(config.training.tr_npy_path)
+    train_dataset = RadSamDataset(
+        config.dataset.img_dir,
+        config.dataset.masks_path,
+        config.dataset.pnts_path,
+        config.dataset.start_idx,
+        config.dataset.end_idx
+    )
 
     train_dataloader = DataLoader(
         train_dataset,
@@ -82,7 +94,6 @@ if __name__ == "__main__":
     )
     # ====================================
 
-
     # TRAINING ===========================
     start_epoch = 0
     if config.training.resume is not None:
@@ -90,39 +101,27 @@ if __name__ == "__main__":
             ## Map model to be loaded to specified single GPU
             checkpoint = torch.load(config.training.resume, map_location=device)
             start_epoch = checkpoint["epoch"] + 1
-            medsam_model.load_state_dict(checkpoint["model"])
+            radsam_model.load_state_dict(checkpoint["model"])
             optimizer.load_state_dict(checkpoint["optimizer"])
-
-    if config.training.use_amp:
-        scaler = torch.cuda.amp.GradScaler()
 
     for epoch in range(start_epoch, num_epochs):
         epoch_loss = 0
-        for step, (image, gt2D, boxes, _) in enumerate(tqdm(train_dataloader)):
+        for step, (img_batch, points, masks, _) in enumerate(tqdm(train_dataloader)):
+            
+            img_batch = img_batch.to(device)
+            points = [points[0].to(device), points[1].to(device)]
+            masks = masks.to(device)
+
             optimizer.zero_grad()
-            boxes_np = boxes.detach().cpu().numpy()
-            image, gt2D = image.to(device), gt2D.to(device)
-            if config.training.use_amp:
-                # AMP
-                with torch.autocast(device_type="cuda", dtype=torch.float16):
-                    medsam_pred = medsam_model(image, boxes_np)
-                    loss = seg_loss(medsam_pred, gt2D) + ce_loss(
-                        medsam_pred, gt2D.float()
-                    )
-                scaler.scale(loss).backward()
-                scaler.step(optimizer)
-                scaler.update()
-                optimizer.zero_grad()
-            else:
-                medsam_pred = medsam_model(image, boxes_np)
-                loss = seg_loss(medsam_pred, gt2D) + ce_loss(medsam_pred, gt2D.float())
-                loss.backward()
-                optimizer.step()
-                optimizer.zero_grad()
+            radsam_pred, _ = radsam_model(img_batch, points)
+            radsam_pred = radsam_pred.squeeze().unsqueeze(0)
+            loss = seg_loss(radsam_pred, masks) + ce_loss(radsam_pred, masks.float())
+            loss.backward()
+            optimizer.step()
 
             epoch_loss += loss.item()
             iter_num += 1
-
+        
         epoch_loss /= step
         losses.append(epoch_loss)
         # ====================================
@@ -135,21 +134,21 @@ if __name__ == "__main__":
         )
         # save the latest model
         checkpoint = {
-            "model": medsam_model.state_dict(),
+            "model": radsam_pred.state_dict(),
             "optimizer": optimizer.state_dict(),
             "epoch": epoch,
         }
-        torch.save(checkpoint, join(model_save_path, "medsam_model_latest.pth"))
+        torch.save(checkpoint, join(model_save_path, "radsam_model_latest.pth"))
         # save the best model
         if epoch_loss < best_loss:
             best_loss = epoch_loss
             checkpoint = {
-                "model": medsam_model.state_dict(),
+                "model": radsam_pred.state_dict(),
                 "optimizer": optimizer.state_dict(),
                 "epoch": epoch,
             }
-            torch.save(checkpoint, join(model_save_path, "medsam_model_best.pth"))
-
+            torch.save(checkpoint, join(model_save_path, "radsam_model_best.pth"))
+        # ====================================
 
     # plot loss
     plt.plot(losses)

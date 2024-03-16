@@ -12,7 +12,7 @@ from torchvision.transforms.functional import resize, to_pil_image  # type: igno
 from copy import deepcopy
 from typing import Tuple
 
-from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, SamPredictor
+from segment_anything import sam_model_registry, SamAutomaticMaskGenerator
 
 
 class ResizeLongestSide:
