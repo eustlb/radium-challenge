@@ -116,6 +116,7 @@ if __name__ == "__main__":
             optimizer.zero_grad()
             radsam_pred, _ = radsam_model(img_batch, points)
             radsam_pred = radsam_pred.squeeze()
+            masks = masks.squeeze()
             loss = seg_loss(radsam_pred, masks) + ce_loss(radsam_pred, masks.float())
             loss.backward()
             optimizer.step()
@@ -135,7 +136,7 @@ if __name__ == "__main__":
         )
         # save the latest model
         checkpoint = {
-            "model": radsam_pred.state_dict(),
+            "model": radsam_model.state_dict(),
             "optimizer": optimizer.state_dict(),
             "epoch": epoch,
         }
@@ -144,7 +145,7 @@ if __name__ == "__main__":
         if epoch_loss < best_loss:
             best_loss = epoch_loss
             checkpoint = {
-                "model": radsam_pred.state_dict(),
+                "model": radsam_model.state_dict(),
                 "optimizer": optimizer.state_dict(),
                 "epoch": epoch,
             }

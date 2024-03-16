@@ -113,7 +113,12 @@ if __name__ == "__main__":
     y_train_path = "/Users/eustachelebihan/Development/radium-challenge/data/y_train.csv"
     saving_dir = "/Users/eustachelebihan/Development/radium-challenge/sam/data"
 
-    main(x_train_path, y_train_path, saving_dir)
+    main(x_train_path, 
+         y_train_path, 
+         saving_dir,
+         idx_start=40, 
+         idx_end=400
+    )
 
 
 
